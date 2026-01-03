@@ -76,8 +76,21 @@ public class Item
 
     class NormalItem : Item {
         public NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
-        
-        
+
+
+        public override void UpdateQuality() {
+            if (Quality > 0) {
+                Quality = Quality - 1;
+            }
+
+            SellIn = SellIn - 1;
+
+            if (SellIn < 0) {
+                if (Quality > 0) {
+                    Quality = Quality - 1;
+                }
+            }
+        }
     }
 
     // Long method
