@@ -16,62 +16,108 @@ public class Item
     // Duplicated code
     public void UpdateQuality() {
         if (Name == "Aged Brie") {
-            UpdateAgedBrie(true);
-        }
-        else {
-            UpdateAgedBrie(false);
-        }
-    }
-
-    void UpdateAgedBrie(bool isAgedBrie) {
-        if (isAgedBrie || Name == "Backstage passes to a TAFKAL80ETC concert") {
-            if (Quality < 50) {
-                Quality = Quality + 1;
-
-                if (Name == "Backstage passes to a TAFKAL80ETC concert") {
-                    if (SellIn < 11) {
-                        if (Quality < 50) {
-                            Quality = Quality + 1;
-                        }
-                    }
-
-                    if (SellIn < 6) {
-                        if (Quality < 50) {
-                            Quality = Quality + 1;
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            if (Quality > 0) {
-                if (Name != "Sulfuras, Hand of Ragnaros") {
-                    Quality = Quality - 1;
-                }
-            }
-        }
-
-        if (Name != "Sulfuras, Hand of Ragnaros")
-        {
-            SellIn = SellIn - 1;
-        }
-
-        if (SellIn < 0) {
-            if (isAgedBrie) {
+            if (true || Name == "Backstage passes to a TAFKAL80ETC concert") {
                 if (Quality < 50) {
                     Quality = Quality + 1;
+
+                    if (Name == "Backstage passes to a TAFKAL80ETC concert") {
+                        if (SellIn < 11) {
+                            if (Quality < 50) {
+                                Quality = Quality + 1;
+                            }
+                        }
+
+                        if (SellIn < 6) {
+                            if (Quality < 50) {
+                                Quality = Quality + 1;
+                            }
+                        }
+                    }
                 }
             }
             else {
-                if (Name != "Backstage passes to a TAFKAL80ETC concert") {
-                    if (Quality > 0) {
-                        if (Name != "Sulfuras, Hand of Ragnaros") {
-                            Quality = Quality - 1;
-                        }
+                if (Quality > 0) {
+                    if (Name != "Sulfuras, Hand of Ragnaros") {
+                        Quality = Quality - 1;
+                    }
+                }
+            }
+
+            if (Name != "Sulfuras, Hand of Ragnaros")
+            {
+                SellIn = SellIn - 1;
+            }
+
+            if (SellIn < 0) {
+                if (true) {
+                    if (Quality < 50) {
+                        Quality = Quality + 1;
                     }
                 }
                 else {
-                    Quality = Quality - Quality;
+                    if (Name != "Backstage passes to a TAFKAL80ETC concert") {
+                        if (Quality > 0) {
+                            if (Name != "Sulfuras, Hand of Ragnaros") {
+                                Quality = Quality - 1;
+                            }
+                        }
+                    }
+                    else {
+                        Quality = Quality - Quality;
+                    }
+                }
+            }
+        }
+        else {
+            if (false || Name == "Backstage passes to a TAFKAL80ETC concert") {
+                if (Quality < 50) {
+                    Quality = Quality + 1;
+
+                    if (Name == "Backstage passes to a TAFKAL80ETC concert") {
+                        if (SellIn < 11) {
+                            if (Quality < 50) {
+                                Quality = Quality + 1;
+                            }
+                        }
+
+                        if (SellIn < 6) {
+                            if (Quality < 50) {
+                                Quality = Quality + 1;
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                if (Quality > 0) {
+                    if (Name != "Sulfuras, Hand of Ragnaros") {
+                        Quality = Quality - 1;
+                    }
+                }
+            }
+
+            if (Name != "Sulfuras, Hand of Ragnaros")
+            {
+                SellIn = SellIn - 1;
+            }
+
+            if (SellIn < 0) {
+                if (false) {
+                    if (Quality < 50) {
+                        Quality = Quality + 1;
+                    }
+                }
+                else {
+                    if (Name != "Backstage passes to a TAFKAL80ETC concert") {
+                        if (Quality > 0) {
+                            if (Name != "Sulfuras, Hand of Ragnaros") {
+                                Quality = Quality - 1;
+                            }
+                        }
+                    }
+                    else {
+                        Quality = Quality - Quality;
+                    }
                 }
             }
         }
