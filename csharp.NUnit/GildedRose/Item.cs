@@ -21,22 +21,6 @@ public abstract class Item {
             UpdateSellIn();
             UpdateQualityAfterSellIn();
         }
-
-        void UpdateQualityNew() {
-            if (Quality < 50) {
-                Quality = Quality + 1;
-            }
-        }
-
-        void UpdateSellIn() {
-            SellIn = SellIn - 1;
-        }
-
-        void UpdateQualityAfterSellIn() {
-            if (SellIn < 0 && Quality < 50) {
-                Quality = Quality + 1;
-            }
-        }
     }
 
     internal class BackstagePass : Item {
@@ -98,4 +82,20 @@ public abstract class Item {
     // Magic literal
     // Uncommunicative name
     public abstract void UpdateQuality();
+
+    protected virtual void UpdateQualityNew() {
+        if (Quality < 50) {
+            Quality = Quality + 1;
+        }
+    }
+
+    protected void UpdateSellIn() {
+        SellIn = SellIn - 1;
+    }
+
+    protected void UpdateQualityAfterSellIn() {
+        if (SellIn < 0 && Quality < 50) {
+            Quality = Quality + 1;
+        }
+    }
 }
