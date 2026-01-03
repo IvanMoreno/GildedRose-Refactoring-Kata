@@ -15,72 +15,72 @@ public class Item
     // Complicated boolean expression
     // Duplicated code
     public void UpdateQuality() {
-        if (this.Name != "Aged Brie" && this.Name != "Backstage passes to a TAFKAL80ETC concert")
+        if (Name != "Aged Brie" && Name != "Backstage passes to a TAFKAL80ETC concert")
         {
-            if (this.Quality > 0)
+            if (Quality > 0)
             {
-                if (this.Name != "Sulfuras, Hand of Ragnaros")
+                if (Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    this.Quality = this.Quality - 1;
+                    Quality = Quality - 1;
                 }
             }
         }
         else
         {
-            if (this.Quality < 50)
+            if (Quality < 50)
             {
-                this.Quality = this.Quality + 1;
+                Quality = Quality + 1;
 
-                if (this.Name == "Backstage passes to a TAFKAL80ETC concert")
+                if (Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (this.SellIn < 11)
+                    if (SellIn < 11)
                     {
-                        if (this.Quality < 50)
+                        if (Quality < 50)
                         {
-                            this.Quality = this.Quality + 1;
+                            Quality = Quality + 1;
                         }
                     }
 
-                    if (this.SellIn < 6)
+                    if (SellIn < 6)
                     {
-                        if (this.Quality < 50)
+                        if (Quality < 50)
                         {
-                            this.Quality = this.Quality + 1;
+                            Quality = Quality + 1;
                         }
                     }
                 }
             }
         }
 
-        if (this.Name != "Sulfuras, Hand of Ragnaros")
+        if (Name != "Sulfuras, Hand of Ragnaros")
         {
-            this.SellIn = this.SellIn - 1;
+            SellIn = SellIn - 1;
         }
 
-        if (this.SellIn < 0)
+        if (SellIn < 0)
         {
-            if (this.Name != "Aged Brie")
+            if (Name != "Aged Brie")
             {
-                if (this.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (this.Quality > 0)
+                    if (Quality > 0)
                     {
-                        if (this.Name != "Sulfuras, Hand of Ragnaros")
+                        if (Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            this.Quality = this.Quality - 1;
+                            Quality = Quality - 1;
                         }
                     }
                 }
                 else
                 {
-                    this.Quality = this.Quality - this.Quality;
+                    Quality = Quality - Quality;
                 }
             }
             else
             {
-                if (this.Quality < 50)
+                if (Quality < 50)
                 {
-                    this.Quality = this.Quality + 1;
+                    Quality = Quality + 1;
                 }
             }
         }
