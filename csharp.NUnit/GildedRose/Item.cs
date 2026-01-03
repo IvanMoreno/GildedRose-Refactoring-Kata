@@ -83,6 +83,17 @@ public abstract class Item {
         public override void UpdateQuality() {
             // Does nothing.
         }
+
+        protected override void UpdateQualityNew() {
+            // Does nothing.
+        }
+        
+        protected override void UpdateSellIn() {
+            // Does nothing.
+        }
+        protected override void UpdateQualityAfterSellIn() {
+            // Does nothing.
+        }
     }
 
     internal class NormalItem : Item {
