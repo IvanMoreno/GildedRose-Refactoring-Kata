@@ -19,7 +19,7 @@ public abstract class Item {
         internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
-            if (Quality >= MaxQuality) 
+            if (ReachedMaxQuality) 
                 return;
             
             Quality++;
@@ -30,7 +30,7 @@ public abstract class Item {
         }
 
         protected override void UpdateQualityAfterSellIn() {
-            if (Quality >= MaxQuality) 
+            if (ReachedMaxQuality) 
                 return;
             
             if (SellIn < 0) {
@@ -51,11 +51,11 @@ public abstract class Item {
             
             Quality++;
 
-            if (SellIn < LimitedThreshold && Quality < MaxQuality) {
+            if (SellIn < LimitedThreshold && !ReachedMaxQuality) {
                 Quality++;
             }
 
-            if (SellIn < VeryLimitedThreshold && Quality < MaxQuality) {
+            if (SellIn < VeryLimitedThreshold && !ReachedMaxQuality) {
                 Quality++;
             }
         }
