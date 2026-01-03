@@ -102,7 +102,6 @@ public abstract class Item {
 
     // Dead code
     // Magic literal
-    // Uncommunicative name
     public void Update() {
         UpdateQualityBeforeSellIn();
         UpdateSellIn();
