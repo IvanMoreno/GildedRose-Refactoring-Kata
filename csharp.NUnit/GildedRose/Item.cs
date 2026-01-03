@@ -1,6 +1,8 @@
 ﻿namespace GildedRoseKata;
 
 public abstract class Item {
+    const int MaxQuality = 50;
+    
     public string Name { get; }
     public int SellIn { get; private set; }
     public int Quality { get; private set; }
@@ -12,8 +14,6 @@ public abstract class Item {
     }
 
     internal class AgedBrie : Item {
-        const int MaxQuality = 50;
-        
         internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
@@ -38,7 +38,6 @@ public abstract class Item {
     }
 
     internal class BackstagePass : Item {
-        const int MaxQuality = 50;
         const int LimitedThreshold = 11;
         const int VeryLimitedThreshold = 6;
 
