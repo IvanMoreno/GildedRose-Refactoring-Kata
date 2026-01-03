@@ -6,6 +6,8 @@ public abstract class Item {
     public string Name { get; }
     public int SellIn { get; private set; }
     public int Quality { get; private set; }
+    
+    bool ReachedMaxQuality => Quality >= MaxQuality;
 
     Item(string name, int sellIn, int quality) {
         Name = name;
@@ -44,7 +46,7 @@ public abstract class Item {
         internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
-            if (Quality >= MaxQuality) 
+            if (ReachedMaxQuality) 
                 return;
             
             Quality++;
