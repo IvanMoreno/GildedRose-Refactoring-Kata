@@ -16,6 +16,10 @@ public class Item
         return new Item(name, sellIn, quality);
     }
 
+    public class AgedBrie : Item {
+        AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+    }
+
     // Long method
     // Divergent change
     // Dead code
