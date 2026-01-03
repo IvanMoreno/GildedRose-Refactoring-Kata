@@ -114,17 +114,7 @@ public class Item
             // Do Nothing
         }
         else {
-            if (Quality > 0) {
-                Quality = Quality - 1;
-            }
-
-            SellIn = SellIn - 1;
-
-            if (SellIn < 0) {
-                if (Quality > 0) {
-                    Quality = Quality - 1;
-                }
-            }
+            throw new NotImplementedException("Use subclass instead");
         }
     }
 }
