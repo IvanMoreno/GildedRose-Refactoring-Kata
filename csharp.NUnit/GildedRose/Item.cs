@@ -13,6 +13,7 @@ public class Item
     // Magic literal
     // Complicated boolean expression
     // Duplicated code
+    // Uncommunicative name
     public void UpdateQuality() {
         if (Name == "Aged Brie") {
             if (Quality < 50) {
