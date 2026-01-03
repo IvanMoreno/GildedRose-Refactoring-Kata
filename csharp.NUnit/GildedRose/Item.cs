@@ -54,7 +54,7 @@ public abstract class Item {
         }
 
         protected override void UpdateSellIn() {
-            SellIn -= 1;
+            SellIn--;
         }
 
         protected override void UpdateQualityAfterSellIn() {
@@ -88,18 +88,18 @@ public abstract class Item {
             if (Quality <= 0) 
                 return;
             
-            Quality -= 1;
+            Quality--;
         }
         
         protected override void UpdateSellIn() {
-            SellIn -= 1;
+            SellIn--;
         }
         
         protected override void UpdateQualityAfterSellIn() {
             if (SellIn >= 0 || Quality <= 0) 
                 return;
             
-            Quality -= 1;
+            Quality--;
         }
     }
 
