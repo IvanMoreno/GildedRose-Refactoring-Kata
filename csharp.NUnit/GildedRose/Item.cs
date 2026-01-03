@@ -100,7 +100,6 @@ public abstract class Item {
         }
     }
 
-    // Divergent change
     // Dead code
     // Magic literal
     // Uncommunicative name
