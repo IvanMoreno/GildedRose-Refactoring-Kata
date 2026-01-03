@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GildedRoseKata;
+﻿namespace GildedRoseKata;
 
 public abstract class Item {
     public string Name { get; }
