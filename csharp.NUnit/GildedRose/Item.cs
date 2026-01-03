@@ -11,7 +11,6 @@ public class Item
     // Dead code
     // Special case
     // Magic literal
-    // Feature Envy
     // Complicated boolean expression
     // Duplicated code
     public void UpdateQuality() {
