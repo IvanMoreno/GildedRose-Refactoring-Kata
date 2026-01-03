@@ -100,13 +100,9 @@ public abstract class Item
         }
     }
 
-    // Long method
     // Divergent change
     // Dead code
-    // Special case
     // Magic literal
-    // Complicated boolean expression
-    // Duplicated code
     // Uncommunicative name
     public abstract void UpdateQuality();
 }
