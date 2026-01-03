@@ -27,11 +27,11 @@ public abstract class Item {
                 Quality = Quality + 1;
             }
         }
-        
+
         protected override void UpdateSellIn() {
             SellIn = SellIn - 1;
         }
-        
+
         protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0 && Quality < 50) {
                 Quality = Quality + 1;
@@ -43,6 +43,12 @@ public abstract class Item {
         internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         public override void UpdateQuality() {
+            UpdateQualityNew();
+            UpdateSellIn();
+            UpdateQualityAfterSellIn();
+        }
+
+        protected override void UpdateQualityNew() {
             if (Quality < 50) {
                 Quality = Quality + 1;
 
@@ -58,9 +64,13 @@ public abstract class Item {
                     }
                 }
             }
+        }
 
+        protected override void UpdateSellIn() {
             SellIn = SellIn - 1;
+        }
 
+        protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0) {
                 Quality = Quality - Quality;
             }
