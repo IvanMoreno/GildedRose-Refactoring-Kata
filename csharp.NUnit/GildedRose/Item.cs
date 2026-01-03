@@ -18,17 +18,17 @@ public abstract class Item {
 
         protected override void UpdateQualityBeforeSellIn() {
             if (Quality < 50) {
-                Quality = Quality + 1;
+                Quality += 1;
             }
         }
 
         protected override void UpdateSellIn() {
-            SellIn = SellIn - 1;
+            SellIn -= 1;
         }
 
         protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0 && Quality < 50) {
-                Quality = Quality + 1;
+                Quality += 1;
             }
         }
     }
@@ -38,29 +38,29 @@ public abstract class Item {
 
         protected override void UpdateQualityBeforeSellIn() {
             if (Quality < 50) {
-                Quality = Quality + 1;
+                Quality += 1;
 
                 if (SellIn < 11) {
                     if (Quality < 50) {
-                        Quality = Quality + 1;
+                        Quality += 1;
                     }
                 }
 
                 if (SellIn < 6) {
                     if (Quality < 50) {
-                        Quality = Quality + 1;
+                        Quality += 1;
                     }
                 }
             }
         }
 
         protected override void UpdateSellIn() {
-            SellIn = SellIn - 1;
+            SellIn -= 1;
         }
 
         protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0) {
-                Quality = Quality - Quality;
+                Quality -= Quality;
             }
         }
     }
@@ -75,6 +75,7 @@ public abstract class Item {
         protected override void UpdateSellIn() {
             // Does nothing.
         }
+        
         protected override void UpdateQualityAfterSellIn() {
             // Does nothing.
         }
@@ -85,16 +86,18 @@ public abstract class Item {
 
         protected override void UpdateQualityBeforeSellIn() {
             if (Quality > 0) {
-                Quality = Quality - 1;
+                Quality -= 1;
             }
         }
+        
         protected override void UpdateSellIn() {
-            SellIn = SellIn - 1;
+            SellIn -= 1;
         }
+        
         protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0) {
                 if (Quality > 0) {
-                    Quality = Quality - 1;
+                    Quality -= 1;
                 }
             }
         }
