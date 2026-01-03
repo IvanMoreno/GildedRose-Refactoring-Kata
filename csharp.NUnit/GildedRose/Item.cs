@@ -51,7 +51,12 @@ public class Item
                 }
             }
             else {
-                NewMethod(Name == "Sulfuras, Hand of Ragnaros");
+                if (Name == "Sulfuras, Hand of Ragnaros") {
+                    NewMethod(true);
+                }
+                else {
+                    NewMethod(false);
+                }
             }
         }
     }
