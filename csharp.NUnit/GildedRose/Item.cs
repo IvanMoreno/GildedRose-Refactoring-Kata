@@ -2,7 +2,7 @@
 
 namespace GildedRoseKata;
 
-public class Item
+public abstract class Item
 {
     public string Name { get; }
     public int SellIn { get; private set; }
@@ -108,20 +108,5 @@ public class Item
     // Complicated boolean expression
     // Duplicated code
     // Uncommunicative name
-    public virtual void UpdateQuality() {
-        if (Name == "Aged Brie") {
-            throw new NotImplementedException("Use subclass instead");
-        }
-
-        if (Name == "Backstage passes to a TAFKAL80ETC concert") {
-            throw new NotImplementedException("Use subclass instead");
-        }
-
-        if (Name == "Sulfuras, Hand of Ragnaros") {
-            // Do Nothing
-        }
-        else {
-            throw new NotImplementedException("Use subclass instead");
-        }
-    }
+    public abstract void UpdateQuality();
 }
