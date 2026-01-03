@@ -16,7 +16,7 @@ public abstract class Item {
     internal class AgedBrie : Item {
         internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        protected override void UpdateQualityNew() {
+        protected override void UpdateQualityBeforeSellIn() {
             if (Quality < 50) {
                 Quality = Quality + 1;
             }
@@ -36,7 +36,7 @@ public abstract class Item {
     internal class BackstagePass : Item {
         internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        protected override void UpdateQualityNew() {
+        protected override void UpdateQualityBeforeSellIn() {
             if (Quality < 50) {
                 Quality = Quality + 1;
 
@@ -68,7 +68,7 @@ public abstract class Item {
     internal class Sulfuras : Item {
         internal Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        protected override void UpdateQualityNew() {
+        protected override void UpdateQualityBeforeSellIn() {
             // Does nothing.
         }
         
@@ -83,7 +83,7 @@ public abstract class Item {
     internal class NormalItem : Item {
         internal NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        protected override void UpdateQualityNew() {
+        protected override void UpdateQualityBeforeSellIn() {
             if (Quality > 0) {
                 Quality = Quality - 1;
             }
@@ -103,13 +103,13 @@ public abstract class Item {
     // Dead code
     // Magic literal
     // Uncommunicative name
-    public void UpdateQuality() {
-        UpdateQualityNew();
+    public void Update() {
+        UpdateQualityBeforeSellIn();
         UpdateSellIn();
         UpdateQualityAfterSellIn();
     }
 
-    protected abstract void UpdateQualityNew();
+    protected abstract void UpdateQualityBeforeSellIn();
     protected abstract void UpdateSellIn();
     protected abstract void UpdateQualityAfterSellIn();
 }

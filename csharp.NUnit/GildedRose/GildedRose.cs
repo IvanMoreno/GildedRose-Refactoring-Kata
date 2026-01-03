@@ -13,7 +13,7 @@ public class GildedRose
 
     public void UpdateQuality() {
         foreach (var item in Items) {
-            item.UpdateQuality();
+            item.Update();
         }
     }
 }
