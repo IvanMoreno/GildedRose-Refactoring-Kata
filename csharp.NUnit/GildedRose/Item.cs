@@ -22,6 +22,18 @@ public class Item
 
     public class AgedBrie : Item {
         public AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        
+        public override void UpdateQuality() {
+            if (Quality < 50) {
+                Quality = Quality + 1;
+            }
+
+            SellIn = SellIn - 1;
+
+            if (SellIn < 0 && Quality < 50) {
+                Quality = Quality + 1;
+            }
+        }
     }
 
     // Long method
@@ -32,7 +44,7 @@ public class Item
     // Complicated boolean expression
     // Duplicated code
     // Uncommunicative name
-    public void UpdateQuality() {
+    public virtual void UpdateQuality() {
         if (Name == "Aged Brie") {
             if (Quality < 50) {
                 Quality = Quality + 1;
