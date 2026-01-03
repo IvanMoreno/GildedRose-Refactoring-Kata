@@ -24,7 +24,7 @@ public class Item
         }
 
         if (name == "Sulfuras, Hand of Ragnaros") {
-            return new Item(name,  sellIn, quality);
+            return new Sulfuras(name,  sellIn, quality);
         }
         
         return new NormalItem(name, sellIn, quality);
@@ -71,6 +71,13 @@ public class Item
             if (SellIn < 0) {
                 Quality = Quality - Quality;
             }
+        }
+    }
+
+    class Sulfuras : Item {
+        public Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        public override void UpdateQuality() {
+            // Does nothing.
         }
     }
 
