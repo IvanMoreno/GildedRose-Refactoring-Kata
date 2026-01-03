@@ -13,11 +13,15 @@ public class Item
     }
 
     public static Item CreateInstance(string name, int sellIn, int quality) {
+        if (name == "Aged Brie") {
+            return new AgedBrie(name,  sellIn, quality);
+        }
+        
         return new Item(name, sellIn, quality);
     }
 
     public class AgedBrie : Item {
-        AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        public AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
     }
 
     // Long method
