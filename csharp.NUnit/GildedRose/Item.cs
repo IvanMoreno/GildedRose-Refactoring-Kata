@@ -100,12 +100,20 @@ public abstract class Item {
         internal NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         public override void UpdateQuality() {
+            UpdateQualityNew();
+            UpdateSellIn();
+            UpdateQualityAfterSellIn();
+        }
+
+        protected override void UpdateQualityNew() {
             if (Quality > 0) {
                 Quality = Quality - 1;
             }
-
+        }
+        protected override void UpdateSellIn() {
             SellIn = SellIn - 1;
-
+        }
+        protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0) {
                 if (Quality > 0) {
                     Quality = Quality - 1;
