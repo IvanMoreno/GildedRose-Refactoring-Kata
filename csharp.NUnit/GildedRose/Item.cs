@@ -110,7 +110,6 @@ public abstract class Item {
         }
     }
 
-    // Magic literal
     public void Update() {
         UpdateQualityBeforeSellIn();
         UpdateSellIn();
