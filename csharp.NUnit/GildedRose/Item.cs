@@ -12,21 +12,27 @@ public abstract class Item {
     }
 
     internal class AgedBrie : Item {
+        const int MaxQuality = 50;
+        
         internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
-            if (Quality < 50) {
-                Quality += 1;
-            }
+            if (Quality >= MaxQuality) 
+                return;
+            
+            Quality++;
         }
 
         protected override void UpdateSellIn() {
-            SellIn -= 1;
+            SellIn--;
         }
 
         protected override void UpdateQualityAfterSellIn() {
-            if (SellIn < 0 && Quality < 50) {
-                Quality += 1;
+            if (Quality >= MaxQuality) 
+                return;
+            
+            if (SellIn < 0) {
+                Quality++;
             }
         }
     }
