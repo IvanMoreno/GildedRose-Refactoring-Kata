@@ -15,6 +15,15 @@ public class Item
     // Complicated boolean expression
     // Duplicated code
     public void UpdateQuality() {
+        if (Name == "Aged Brie") {
+            UpdateAgedBrie();
+        }
+        else {
+            UpdateAgedBrie();
+        }
+    }
+
+    void UpdateAgedBrie() {
         if (Name != "Aged Brie" && Name != "Backstage passes to a TAFKAL80ETC concert")
         {
             if (Quality > 0)
