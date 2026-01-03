@@ -17,12 +17,22 @@ public abstract class Item {
         internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         public override void UpdateQuality() {
+            UpdateQualityNew();
+            UpdateSellIn();
+            UpdateQualityAfterSellIn();
+        }
+
+        void UpdateQualityNew() {
             if (Quality < 50) {
                 Quality = Quality + 1;
             }
+        }
 
+        void UpdateSellIn() {
             SellIn = SellIn - 1;
+        }
 
+        void UpdateQualityAfterSellIn() {
             if (SellIn < 0 && Quality < 50) {
                 Quality = Quality + 1;
             }
