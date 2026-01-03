@@ -11,6 +11,14 @@ public class GildedRose
         this.Items = Items;
     }
 
+    // Long method
+    // Divergent change
+    // Dead code
+    // Special case
+    // Magic literal
+    // Feature Envy
+    // Complicated boolean expression
+    // Duplicated code
     public void UpdateQuality()
     {
         for (var i = 0; i < Items.Count; i++)

@@ -1,5 +1,6 @@
 ﻿namespace GildedRoseKata;
 
+// Data class
 public class Item
 {
     public string Name { get; set; }
