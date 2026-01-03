@@ -28,10 +28,10 @@ public class Item
         }
         else {
             if (Name == "Backstage passes to a TAFKAL80ETC concert") {
-                UpdateBackstageQuality(Name == "Backstage passes to a TAFKAL80ETC concert");
+                UpdateBackstageQuality(true);
             }
             else {
-                UpdateBackstageQuality(Name == "Backstage passes to a TAFKAL80ETC concert");
+                UpdateBackstageQuality(false);
             }
         }
     }
