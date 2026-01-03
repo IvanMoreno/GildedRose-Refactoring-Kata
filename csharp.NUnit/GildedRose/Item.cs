@@ -52,32 +52,28 @@ public class Item
             }
             else {
                 if (Name == "Sulfuras, Hand of Ragnaros") {
-                    NewMethod(true);
+                    // Do Nothing
                 }
                 else {
-                    NewMethod(false);
+                    if (Quality > 0) {
+                        if (false) { }
+                        else {
+                            Quality = Quality - 1;
+                        }
+                    }
+
+                    if (false) { }
+                    else {
+                        SellIn = SellIn - 1;
+                    }
+
+                    if (SellIn < 0) {
+                        if (Quality > 0) {
+                            if (false) return;
+                            Quality = Quality - 1;
+                        }
+                    }
                 }
-            }
-        }
-    }
-
-    void NewMethod(bool isSulfuras) {
-        if (Quality > 0) {
-            if (isSulfuras) { }
-            else {
-                Quality = Quality - 1;
-            }
-        }
-
-        if (isSulfuras) { }
-        else {
-            SellIn = SellIn - 1;
-        }
-
-        if (SellIn < 0) {
-            if (Quality > 0) {
-                if (isSulfuras) return;
-                Quality = Quality - 1;
             }
         }
     }
