@@ -2,8 +2,7 @@
 
 namespace GildedRoseKata;
 
-public abstract class Item
-{
+public abstract class Item {
     public string Name { get; }
     public int SellIn { get; private set; }
     public int Quality { get; private set; }
@@ -14,25 +13,9 @@ public abstract class Item
         Quality = quality;
     }
 
-    public static Item CreateInstance(string name, int sellIn, int quality) {
-        if (name == "Aged Brie") {
-            return new AgedBrie(name,  sellIn, quality);
-        }
+    internal class AgedBrie : Item {
+        internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        if (name == "Backstage passes to a TAFKAL80ETC concert") {
-            return new BackstagePass(name, sellIn, quality);
-        }
-
-        if (name == "Sulfuras, Hand of Ragnaros") {
-            return new Sulfuras(name,  sellIn, quality);
-        }
-        
-        return new NormalItem(name, sellIn, quality);
-    }
-
-    class AgedBrie : Item {
-        public AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
-        
         public override void UpdateQuality() {
             if (Quality < 50) {
                 Quality = Quality + 1;
@@ -46,8 +29,8 @@ public abstract class Item
         }
     }
 
-    class BackstagePass : Item {
-        public BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+    internal class BackstagePass : Item {
+        internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         public override void UpdateQuality() {
             if (Quality < 50) {
@@ -74,16 +57,16 @@ public abstract class Item
         }
     }
 
-    class Sulfuras : Item {
-        public Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+    internal class Sulfuras : Item {
+        internal Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+
         public override void UpdateQuality() {
             // Does nothing.
         }
     }
 
-    class NormalItem : Item {
-        public NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
-
+    internal class NormalItem : Item {
+        internal NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         public override void UpdateQuality() {
             if (Quality > 0) {
