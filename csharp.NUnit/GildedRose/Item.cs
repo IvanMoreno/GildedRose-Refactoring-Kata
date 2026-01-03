@@ -8,9 +8,9 @@ public class Item
         Quality = quality;
     }
 
-    public string Name { get; set; }
-    public int SellIn { get; set; }
-    public int Quality { get; set; }
+    public string Name { get; }
+    public int SellIn { get; private set; }
+    public int Quality { get; private set; }
 
     // Long method
     // Divergent change
