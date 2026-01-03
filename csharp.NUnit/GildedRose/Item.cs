@@ -6,10 +6,14 @@ public class Item
     public int SellIn { get; private set; }
     public int Quality { get; private set; }
 
-    public Item(string name, int sellIn, int quality) {
+    Item(string name, int sellIn, int quality) {
         Name = name;
         SellIn = sellIn;
         Quality = quality;
+    }
+
+    public static Item CreateInstance(string name, int sellIn, int quality) {
+        return new Item(name, sellIn, quality);
     }
 
     // Long method
