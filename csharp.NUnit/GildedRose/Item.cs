@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using System;
+
+namespace GildedRoseKata;
 
 public class Item
 {
@@ -46,15 +48,7 @@ public class Item
     // Uncommunicative name
     public virtual void UpdateQuality() {
         if (Name == "Aged Brie") {
-            if (Quality < 50) {
-                Quality = Quality + 1;
-            }
-
-            SellIn = SellIn - 1;
-
-            if (SellIn < 0 && Quality < 50) {
-                Quality = Quality + 1;
-            }
+            throw new NotImplementedException("Use subclass instead");
         }
         else {
             if (Name == "Backstage passes to a TAFKAL80ETC concert") {
