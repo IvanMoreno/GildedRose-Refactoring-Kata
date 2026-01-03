@@ -6,6 +6,7 @@ public abstract class Item {
     public string Name { get; }
     public int SellIn { get; private set; }
     public int Quality { get; private set; }
+    bool DidExpire => SellIn < 0;
 
     Item(string name, int sellIn, int quality) {
         Name = name;
@@ -25,7 +26,7 @@ public abstract class Item {
         }
 
         protected override void UpdateQualityAfterSellIn() {
-            if (SellIn >= 0) 
+            if (!DidExpire) 
                 return;
             
             IncreaseQuality();
@@ -56,7 +57,7 @@ public abstract class Item {
         }
 
         protected override void UpdateQualityAfterSellIn() {
-            if (SellIn >= 0) 
+            if (!DidExpire) 
                 return;
             
             Quality = 0;
@@ -91,7 +92,7 @@ public abstract class Item {
         }
         
         protected override void UpdateQualityAfterSellIn() {
-            if (SellIn >= 0) 
+            if (!DidExpire) 
                 return;
             
             DecreaseQuality();
