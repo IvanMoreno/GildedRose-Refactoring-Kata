@@ -18,6 +18,10 @@ public class Item
         if (name == "Aged Brie") {
             return new AgedBrie(name,  sellIn, quality);
         }
+
+        if (name == "Backstage passes to a TAFKAL80ETC concert") {
+            return new BackstagePass(name, sellIn, quality);
+        }
         
         return new Item(name, sellIn, quality);
     }
@@ -36,6 +40,11 @@ public class Item
                 Quality = Quality + 1;
             }
         }
+    }
+
+    class BackstagePass : Item {
+        public BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        
     }
 
     // Long method
