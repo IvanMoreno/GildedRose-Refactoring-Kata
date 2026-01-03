@@ -6,8 +6,6 @@ public abstract class Item {
     public string Name { get; }
     public int SellIn { get; private set; }
     public int Quality { get; private set; }
-    
-    bool ReachedMaxQuality => Quality >= MaxQuality;
 
     Item(string name, int sellIn, int quality) {
         Name = name;
@@ -19,10 +17,7 @@ public abstract class Item {
         internal AgedBrie(int sellIn, int quality) : base("Aged Brie", sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
-            if (ReachedMaxQuality) 
-                return;
-            
-            Quality++;
+            IncreaseQuality();
         }
 
         protected override void UpdateSellIn() {
@@ -30,12 +25,10 @@ public abstract class Item {
         }
 
         protected override void UpdateQualityAfterSellIn() {
-            if (ReachedMaxQuality) 
+            if (SellIn >= 0) 
                 return;
             
-            if (SellIn < 0) {
-                Quality++;
-            }
+            IncreaseQuality();
         }
     }
 
@@ -46,17 +39,14 @@ public abstract class Item {
         internal BackstagePass(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
-            if (ReachedMaxQuality) 
-                return;
-            
-            Quality++;
+            IncreaseQuality();
 
-            if (CloseToConcert && !ReachedMaxQuality) {
-                Quality++;
+            if (CloseToConcert) {
+                IncreaseQuality();
             }
 
-            if (VeryCloseToConcert && !ReachedMaxQuality) {
-                Quality++;
+            if (VeryCloseToConcert) {
+                IncreaseQuality();
             }
         }
         
@@ -120,4 +110,11 @@ public abstract class Item {
     protected abstract void UpdateQualityBeforeSellIn();
     protected abstract void UpdateSellIn();
     protected abstract void UpdateQualityAfterSellIn();
+
+    protected void IncreaseQuality() {
+        if (Quality >= MaxQuality)
+            return;
+        
+        Quality++;
+    }
 }
