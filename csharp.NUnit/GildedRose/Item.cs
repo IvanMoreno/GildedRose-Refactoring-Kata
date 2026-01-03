@@ -128,19 +128,7 @@ public abstract class Item {
     // Uncommunicative name
     public abstract void UpdateQuality();
 
-    protected virtual void UpdateQualityNew() {
-        if (Quality < 50) {
-            Quality = Quality + 1;
-        }
-    }
-
-    protected virtual void UpdateSellIn() {
-        SellIn = SellIn - 1;
-    }
-
-    protected virtual void UpdateQualityAfterSellIn() {
-        if (SellIn < 0 && Quality < 50) {
-            Quality = Quality + 1;
-        }
-    }
+    protected abstract void UpdateQualityNew();
+    protected abstract void UpdateSellIn();
+    protected abstract void UpdateQualityAfterSellIn();
 }
