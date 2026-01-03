@@ -86,21 +86,20 @@ public class Item
         if (Name == "Backstage passes to a TAFKAL80ETC concert") {
             throw new NotImplementedException("Use subclass instead");
         }
+
+        if (Name == "Sulfuras, Hand of Ragnaros") {
+            // Do Nothing
+        }
         else {
-            if (Name == "Sulfuras, Hand of Ragnaros") {
-                // Do Nothing
+            if (Quality > 0) {
+                Quality = Quality - 1;
             }
-            else {
+
+            SellIn = SellIn - 1;
+
+            if (SellIn < 0) {
                 if (Quality > 0) {
                     Quality = Quality - 1;
-                }
-
-                SellIn = SellIn - 1;
-
-                if (SellIn < 0) {
-                    if (Quality > 0) {
-                        Quality = Quality - 1;
-                    }
                 }
             }
         }
