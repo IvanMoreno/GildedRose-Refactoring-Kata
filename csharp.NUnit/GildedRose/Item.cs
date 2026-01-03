@@ -56,20 +56,13 @@ public class Item
                 }
                 else {
                     if (Quality > 0) {
-                        if (false) { }
-                        else {
-                            Quality = Quality - 1;
-                        }
+                        Quality = Quality - 1;
                     }
 
-                    if (false) { }
-                    else {
-                        SellIn = SellIn - 1;
-                    }
+                    SellIn = SellIn - 1;
 
                     if (SellIn < 0) {
                         if (Quality > 0) {
-                            if (false) return;
                             Quality = Quality - 1;
                         }
                     }
