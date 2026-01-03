@@ -16,12 +16,6 @@ public abstract class Item {
     internal class AgedBrie : Item {
         internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        public override void UpdateQuality() {
-            UpdateQualityNew();
-            UpdateSellIn();
-            UpdateQualityAfterSellIn();
-        }
-
         protected override void UpdateQualityNew() {
             if (Quality < 50) {
                 Quality = Quality + 1;
@@ -41,12 +35,6 @@ public abstract class Item {
 
     internal class BackstagePass : Item {
         internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
-
-        public override void UpdateQuality() {
-            UpdateQualityNew();
-            UpdateSellIn();
-            UpdateQualityAfterSellIn();
-        }
 
         protected override void UpdateQualityNew() {
             if (Quality < 50) {
@@ -80,10 +68,6 @@ public abstract class Item {
     internal class Sulfuras : Item {
         internal Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
-        public override void UpdateQuality() {
-            // Does nothing.
-        }
-
         protected override void UpdateQualityNew() {
             // Does nothing.
         }
@@ -98,12 +82,6 @@ public abstract class Item {
 
     internal class NormalItem : Item {
         internal NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
-
-        public override void UpdateQuality() {
-            UpdateQualityNew();
-            UpdateSellIn();
-            UpdateQualityAfterSellIn();
-        }
 
         protected override void UpdateQualityNew() {
             if (Quality > 0) {
@@ -126,7 +104,11 @@ public abstract class Item {
     // Dead code
     // Magic literal
     // Uncommunicative name
-    public abstract void UpdateQuality();
+    public void UpdateQuality() {
+        UpdateQualityNew();
+        UpdateSellIn();
+        UpdateQualityAfterSellIn();
+    }
 
     protected abstract void UpdateQualityNew();
     protected abstract void UpdateSellIn();
