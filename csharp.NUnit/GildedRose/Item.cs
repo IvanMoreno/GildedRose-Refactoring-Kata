@@ -16,7 +16,7 @@ public abstract class Item {
     }
 
     internal class AgedBrie : Item {
-        internal AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        internal AgedBrie(int sellIn, int quality) : base("Aged Brie", sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
             if (ReachedMaxQuality) 
@@ -43,7 +43,7 @@ public abstract class Item {
         const int LimitedThreshold = 11;
         const int VeryLimitedThreshold = 6;
 
-        internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        internal BackstagePass(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
             if (ReachedMaxQuality) 
@@ -73,7 +73,7 @@ public abstract class Item {
     }
 
     internal class Sulfuras : Item {
-        internal Sulfuras(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        internal Sulfuras(int sellIn, int quality) : base("Sulfuras, Hand of Ragnaros", sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
             // Does nothing.
