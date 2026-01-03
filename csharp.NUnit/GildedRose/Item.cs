@@ -83,10 +83,7 @@ public abstract class Item {
         internal NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
-            if (Quality <= 0) 
-                return;
-            
-            Quality--;
+            DecreaseQuality();
         }
         
         protected override void UpdateSellIn() {
@@ -94,10 +91,10 @@ public abstract class Item {
         }
         
         protected override void UpdateQualityAfterSellIn() {
-            if (SellIn >= 0 || Quality <= 0) 
+            if (SellIn >= 0) 
                 return;
             
-            Quality--;
+            DecreaseQuality();
         }
     }
 
@@ -116,5 +113,12 @@ public abstract class Item {
             return;
         
         Quality++;
+    }
+
+    protected void DecreaseQuality() {
+        if (Quality <= 0) 
+            return;
+            
+        Quality--;
     }
 }
