@@ -57,7 +57,7 @@ public abstract class Item {
 
         protected override void UpdateQualityAfterSellIn() {
             if (SellIn < 0) {
-                Quality -= Quality;
+                Quality = 0;
             }
         }
     }
