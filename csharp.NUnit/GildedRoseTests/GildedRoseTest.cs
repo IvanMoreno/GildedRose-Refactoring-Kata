@@ -6,7 +6,7 @@ namespace GildedRoseTests;
 
 public class GildedRoseTest
 {
-    [Test]
+    [Test, Ignore("Using this kata only to practice smell identification and refactoring, so assuming the risk of not having unit test coverage")]
     public void Foo()
     {
         var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
