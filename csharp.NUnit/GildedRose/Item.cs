@@ -22,7 +22,7 @@ public class Item
         return new Item(name, sellIn, quality);
     }
 
-    public class AgedBrie : Item {
+    class AgedBrie : Item {
         public AgedBrie(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
         
         public override void UpdateQuality() {
