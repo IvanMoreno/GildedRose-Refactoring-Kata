@@ -21,6 +21,22 @@ public abstract class Item {
             UpdateSellIn();
             UpdateQualityAfterSellIn();
         }
+
+        protected override void UpdateQualityNew() {
+            if (Quality < 50) {
+                Quality = Quality + 1;
+            }
+        }
+        
+        protected override void UpdateSellIn() {
+            SellIn = SellIn - 1;
+        }
+        
+        protected override void UpdateQualityAfterSellIn() {
+            if (SellIn < 0 && Quality < 50) {
+                Quality = Quality + 1;
+            }
+        }
     }
 
     internal class BackstagePass : Item {
@@ -89,11 +105,11 @@ public abstract class Item {
         }
     }
 
-    protected void UpdateSellIn() {
+    protected virtual void UpdateSellIn() {
         SellIn = SellIn - 1;
     }
 
-    protected void UpdateQualityAfterSellIn() {
+    protected virtual void UpdateQualityAfterSellIn() {
         if (SellIn < 0 && Quality < 50) {
             Quality = Quality + 1;
         }
