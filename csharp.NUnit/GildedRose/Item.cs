@@ -33,7 +33,9 @@ public abstract class Item {
 
     internal class BackstagePass : Item {
         const int MaxQuality = 50;
-        
+        const int LimitedThreshold = 11;
+        const int VeryLimitedThreshold = 6;
+
         internal BackstagePass(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
 
         protected override void UpdateQualityBeforeSellIn() {
@@ -42,11 +44,11 @@ public abstract class Item {
             
             Quality++;
 
-            if (SellIn < 11 && Quality < MaxQuality) {
+            if (SellIn < LimitedThreshold && Quality < MaxQuality) {
                 Quality++;
             }
 
-            if (SellIn < 6 && Quality < MaxQuality) {
+            if (SellIn < VeryLimitedThreshold && Quality < MaxQuality) {
                 Quality++;
             }
         }
@@ -56,9 +58,10 @@ public abstract class Item {
         }
 
         protected override void UpdateQualityAfterSellIn() {
-            if (SellIn < 0) {
-                Quality = 0;
-            }
+            if (SellIn >= 0) 
+                return;
+            
+            Quality = 0;
         }
     }
 
