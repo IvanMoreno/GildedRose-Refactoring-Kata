@@ -7,6 +7,14 @@ public class Item
     public int SellIn { get; set; }
     public int Quality { get; set; }
 
+    // Long method
+    // Divergent change
+    // Dead code
+    // Special case
+    // Magic literal
+    // Feature Envy
+    // Complicated boolean expression
+    // Duplicated code
     public void UpdateQuality() {
         if (this.Name != "Aged Brie" && this.Name != "Backstage passes to a TAFKAL80ETC concert")
         {
