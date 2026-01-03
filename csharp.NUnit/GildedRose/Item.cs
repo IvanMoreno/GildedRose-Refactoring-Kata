@@ -40,8 +40,8 @@ public abstract class Item {
     }
 
     internal class BackstagePass : Item {
-        const int LimitedThreshold = 11;
-        const int VeryLimitedThreshold = 6;
+        bool IsLimited => SellIn < 11;
+        bool IsVeryLimited => SellIn < 6;
 
         internal BackstagePass(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn, quality) { }
 
@@ -51,14 +51,15 @@ public abstract class Item {
             
             Quality++;
 
-            if (SellIn < LimitedThreshold && !ReachedMaxQuality) {
+            if (IsLimited && !ReachedMaxQuality) {
                 Quality++;
             }
 
-            if (SellIn < VeryLimitedThreshold && !ReachedMaxQuality) {
+            if (IsVeryLimited && !ReachedMaxQuality) {
                 Quality++;
             }
         }
+        
 
         protected override void UpdateSellIn() {
             SellIn--;
