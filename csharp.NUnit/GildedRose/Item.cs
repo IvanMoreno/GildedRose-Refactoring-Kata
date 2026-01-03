@@ -40,8 +40,8 @@ public abstract class Item {
     }
 
     internal class BackstagePass : Item {
-        bool IsLimited => SellIn < 11;
-        bool IsVeryLimited => SellIn < 6;
+        bool CloseToConcert => SellIn < 11;
+        bool VeryCloseToConcert => SellIn < 6;
 
         internal BackstagePass(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn, quality) { }
 
@@ -51,11 +51,11 @@ public abstract class Item {
             
             Quality++;
 
-            if (IsLimited && !ReachedMaxQuality) {
+            if (CloseToConcert && !ReachedMaxQuality) {
                 Quality++;
             }
 
-            if (IsVeryLimited && !ReachedMaxQuality) {
+            if (VeryCloseToConcert && !ReachedMaxQuality) {
                 Quality++;
             }
         }
