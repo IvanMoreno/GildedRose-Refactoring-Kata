@@ -22,8 +22,12 @@ public class Item
         if (name == "Backstage passes to a TAFKAL80ETC concert") {
             return new BackstagePass(name, sellIn, quality);
         }
+
+        if (name == "Sulfuras, Hand of Ragnaros") {
+            return new Item(name,  sellIn, quality);
+        }
         
-        return new Item(name, sellIn, quality);
+        return new NormalItem(name, sellIn, quality);
     }
 
     class AgedBrie : Item {
@@ -68,6 +72,12 @@ public class Item
                 Quality = Quality - Quality;
             }
         }
+    }
+
+    class NormalItem : Item {
+        public NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+        
+        
     }
 
     // Long method
