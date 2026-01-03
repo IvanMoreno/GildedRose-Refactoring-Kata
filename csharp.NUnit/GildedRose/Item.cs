@@ -103,7 +103,6 @@ public abstract class Item {
         }
     }
 
-    // Dead code
     // Magic literal
     public void Update() {
         UpdateQualityBeforeSellIn();
