@@ -16,10 +16,10 @@ public class Item
     // Duplicated code
     public void UpdateQuality() {
         if (Name == "Aged Brie") {
-            UpdateAgedBrie(Name == "Aged Brie");
+            UpdateAgedBrie(true);
         }
         else {
-            UpdateAgedBrie(Name == "Aged Brie");
+            UpdateAgedBrie(false);
         }
     }
 
